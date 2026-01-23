@@ -1,0 +1,209 @@
+{
+  "ML": {
+    "Low": {
+      "controls": [
+        "Data governance (Healthcare)",
+        "Model documentation (Healthcare)"
+      ],
+      "validation": [
+        "Basic performance metrics (accuracy, $P(\\text{correct}) > 0.8$)",
+        "Data quality check ($missing\\_data < 5\\%$)"
+      ],
+      "monitoring": [
+        "Model drift (basic)",
+        "Prediction integrity"
+      ],
+      "incident_triggers": [
+        "Significant performance drop (e.g., accuracy below $0.75$)"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Data governance (Healthcare)",
+        "Model documentation (Healthcare)",
+        "Bias detection (demographics)",
+        "Robustness testing (Healthcare specific)"
+      ],
+      "validation": [
+        "Advanced performance (AUC, F1, Sensitivity, Specificity)",
+        "Bias fairness metrics (e.g., $FNR_{groupA} - FNR_{groupB} < 0.05$)",
+        "Outlier detection"
+      ],
+      "monitoring": [
+        "Model drift (detailed)",
+        "Fairness metric drift",
+        "Outcome drift (e.g., re-hospitalization rates)"
+      ],
+      "incident_triggers": [
+        "Unacceptable bias detected",
+        "Unexplained outcome changes",
+        "High override rate ($>10\\%$ of predictions)"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Data governance (Healthcare)",
+        "Model documentation (Healthcare)",
+        "Bias detection (demographics)",
+        "Robustness testing (Healthcare specific)",
+        "Clinical override protocol",
+        "Human-in-the-loop for critical decisions",
+        "Explainability for clinicians",
+        "Privacy-preserving data handling (HIPAA compliance)"
+      ],
+      "validation": [
+        "Comprehensive performance (Sensitivity, Specificity, $FNR_{target\\_condition} < 0.01$)",
+        "Bias fairness metrics (e.g., $FNR_{protected\\_group} - FNR_{overall} < 0.02$)",
+        "Adversarial robustness (Healthcare-specific attacks)",
+        "Causal inference checks (clinical outcomes)"
+      ],
+      "monitoring": [
+        "Model drift (real-time)",
+        "Fairness metric drift (critical groups)",
+        "Outcome drift (real-time)",
+        "Override rates (by clinician/type)",
+        "Alert fatigue metrics (human feedback loop)"
+      ],
+      "incident_triggers": [
+        "Critical FNR increase (e.g., $FNR > 0.015$)",
+        "Sudden override rate surge ($>20\\%$ threshold)",
+        "Adverse patient outcome correlation identified"
+      ]
+    }
+  },
+  "LLM": {
+    "Low": {
+      "controls": [
+        "Prompt engineering guidelines (Healthcare)",
+        "Basic content moderation (Healthcare)"
+      ],
+      "validation": [
+        "Fluency and coherence (medical context)",
+        "Relevance check (patient queries)"
+      ],
+      "monitoring": [
+        "Output quality (grammar, medical terminology)",
+        "Query volume (trends)"
+      ],
+      "incident_triggers": [
+        "Inappropriate content generation (medical ethics breach)"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Prompt engineering guidelines (Healthcare)",
+        "Advanced content moderation (Healthcare)",
+        "Fact-checking integration (medical literature)",
+        "Data privacy controls (PHI)"
+      ],
+      "validation": [
+        "Hallucination rate evaluation (medical facts, $P(\\text{hallucination}) < 0.05$)",
+        "Bias in generated text (gender, ethnicity)",
+        "Context adherence (patient history)"
+      ],
+      "monitoring": [
+        "Hallucination rate drift",
+        "Bias metric drift (text generation)",
+        "Information accuracy (medical claims)"
+      ],
+      "incident_triggers": [
+        "Increased hallucination (medical advice)",
+        "Misinformation generation (patient safety risk)"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Prompt engineering guidelines (Healthcare)",
+        "Advanced content moderation (Healthcare)",
+        "Fact-checking integration (medical literature)",
+        "Data privacy controls (PHI)",
+        "Clinical verification workflow (human review for diagnoses)",
+        "Privacy-preserving methods (e.g., K-anonymity)"
+      ],
+      "validation": [
+        "Hallucination rate (strict thresholds, e.g., $P(\\text{hallucination}) < 0.005$ for diagnostic advice)",
+        "Bias in generated text for sensitive groups",
+        "Privacy leakage detection (PHI)",
+        "Clinical relevance and safety (adherence to guidelines)"
+      ],
+      "monitoring": [
+        "Hallucination rate drift (real-time, critical)",
+        "Privacy violation alerts (real-time)",
+        "Clinical override rates (for LLM suggestions)",
+        "Adherence to medical guidelines (automated checks)"
+      ],
+      "incident_triggers": [
+        "Medical misinformation leading to harm",
+        "Patient data breach (PHI exposure)",
+        "Unsafe clinical recommendations generated"
+      ]
+    }
+  },
+  "Agent": {
+    "Low": {
+      "controls": [
+        "Action logging (Healthcare tasks)",
+        "Basic authorization (Healthcare systems)"
+      ],
+      "validation": [
+        "Action efficacy (e.g., appointment scheduling accuracy)",
+        "Boundary adherence (role limits)"
+      ],
+      "monitoring": [
+        "Action frequency",
+        "Error rate (task completion)"
+      ],
+      "incident_triggers": [
+        "Unauthorized action attempts"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Action logging (Healthcare tasks)",
+        "Granular authorization (Healthcare systems)",
+        "Reversibility protocols (patient actions)",
+        "Autonomous action limits (e.g., dose adjustments)"
+      ],
+      "validation": [
+        "Complex task success rate (e.g., patient pathway optimization)",
+        "Unintended side effects (system interactions)",
+        "Reversal capability (action undo)"
+      ],
+      "monitoring": [
+        "Autonomous action limits breached",
+        "Error cascades (system-wide)",
+        "Human intervention rates (agent-triggered)"
+      ],
+      "incident_triggers": [
+        "Agent taking unintended medical actions",
+        "Significant error rate spike (impacting patient flow)"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Action logging (Healthcare tasks)",
+        "Granular authorization (Healthcare systems)",
+        "Reversibility protocols (patient actions)",
+        "Autonomous action limits (e.g., drug delivery)",
+        "Emergency stop mechanism (physical/digital)",
+        "Comprehensive audit trails (clinical decisions)"
+      ],
+      "validation": [
+        "Critical task success rate (e.g., $P(\\text{incorrect action}) < 0.001$ for life-critical functions)",
+        "Catastrophic failure modes (simulations)",
+        "Compliance with medical ethics and regulations (e.g., FDA)"
+      ],
+      "monitoring": [
+        "Unauthorized action attempts",
+        "Emergency stop activations",
+        "Audit trail integrity (real-time checks)",
+        "Deviation from pre-approved action space (e.g., off-label use)"
+      ],
+      "incident_triggers": [
+        "Uncontrolled agent behavior (patient harm)",
+        "Patient safety compromise (critical incident)",
+        "System bypass attempts (security breach)"
+      ]
+    }
+  }
+}

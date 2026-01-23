@@ -1,0 +1,42 @@
+[
+  {
+    "id": "HC-ML-001",
+    "name": "Patient Triage and Prioritization (ML)",
+    "description": "An ML model predicts patient acuity to prioritize care in an emergency room, aiming to reduce patient wait times while maintaining safety. A key risk is **false negatives** for high-acuity patients.",
+    "sector": "Healthcare",
+    "system_type": "ML",
+    "risk_tier": "High"
+  },
+  {
+    "id": "FI-LLM-002",
+    "name": "Customer Service Chatbot (LLM)",
+    "description": "An LLM-powered chatbot answers customer queries regarding bank services, providing information on account balances, transaction history, and general FAQs. The main risk is providing **inaccurate information** or **hallucinating** responses.",
+    "sector": "Finance",
+    "system_type": "LLM",
+    "risk_tier": "Medium"
+  },
+  {
+    "id": "HC-LLM-003",
+    "name": "Clinical Decision Support (LLM)",
+    "description": "An LLM provides diagnostic support and treatment recommendations to clinicians based on patient medical records and current research. A critical risk is **medical misinformation** or **hallucinations** leading to incorrect diagnoses or treatments.",
+    "sector": "Healthcare",
+    "system_type": "LLM",
+    "risk_tier": "High"
+  },
+  {
+    "id": "FI-Agent-004",
+    "name": "Automated Fraud Detection Agent",
+    "description": "An AI agent monitors transactions in real-time and autonomously blocks suspicious financial activities to prevent financial loss. The key risk is **missing actual fraud (false negatives)** or **blocking legitimate transactions (false positives)**.",
+    "sector": "Finance",
+    "system_type": "Agent",
+    "risk_tier": "High"
+  },
+  {
+    "id": "HC-Agent-005",
+    "name": "Automated Medical Appointment Scheduler (Agent)",
+    "description": "An AI agent manages and optimizes patient appointment scheduling, sending reminders and handling rescheduling requests. A primary risk is **incorrect scheduling** or **HIPAA compliance** violations.",
+    "sector": "Healthcare",
+    "system_type": "Agent",
+    "risk_tier": "Low"
+  }
+]

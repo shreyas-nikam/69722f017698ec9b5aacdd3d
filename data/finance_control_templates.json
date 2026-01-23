@@ -1,0 +1,210 @@
+{
+  "ML": {
+    "Low": {
+      "controls": [
+        "Data governance (Finance)",
+        "Model documentation (Finance)"
+      ],
+      "validation": [
+        "Basic performance metrics (accuracy, $P(\\text{correct}) > 0.85$)",
+        "Input data validation (financial ranges)"
+      ],
+      "monitoring": [
+        "Model drift",
+        "Feature drift (economic indicators)"
+      ],
+      "incident_triggers": [
+        "Significant performance drop (e.g., accuracy below $0.8$)"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Data governance (Finance)",
+        "Model documentation (Finance)",
+        "Bias & fairness analysis (credit scoring)",
+        "Explainability (SHAP/LIME for loan officers)"
+      ],
+      "validation": [
+        "Advanced performance (Precision, Recall, F1 for fraud)",
+        "Bias fairness metrics (e.g., $0.8 \\le DIR \\le 1.25$ for protected groups in lending)",
+        "Explainability report consistency"
+      ],
+      "monitoring": [
+        "Model drift (detailed)",
+        "Feature drift",
+        "Bias metric drift (by demographic)",
+        "Explainability consistency"
+      ],
+      "incident_triggers": [
+        "Unfair outcomes for protected groups",
+        "Inconsistent explanations leading to appeals"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Data governance (Finance)",
+        "Model documentation (Finance)",
+        "Bias & fairness analysis (credit scoring)",
+        "Explainability (SHAP/LIME for loan officers)",
+        "Auditability framework (SOX compliance)",
+        "Adherence to regulatory guidelines (e.g., CCPA, GDPR)"
+      ],
+      "validation": [
+        "Comprehensive performance (F1, AUROC, Precision@k for fraud, $FPR_{fraud} < 0.001$)",
+        "Bias fairness metrics (e.g., $0.8 \\le DIR \\le 1.25$ for all protected groups in credit decisions)",
+        "Robust explainability validation (counterfactuals)",
+        "Adversarial attack resistance (financial data)"
+      ],
+      "monitoring": [
+        "Model drift (real-time, market impact)",
+        "Feature drift (macro-economic)",
+        "Bias metric drift (critical groups)",
+        "Explainability consistency alerts",
+        "Approval rate drift",
+        "Exception volume (manual reviews)"
+      ],
+      "incident_triggers": [
+        "Regulatory non-compliance identified",
+        "Significant financial loss attributed to model",
+        "Public bias incident",
+        "Fraud miss rate spike (e.g., $FNR_{fraud} > 0.002$)"
+      ]
+    }
+  },
+  "LLM": {
+    "Low": {
+      "controls": [
+        "Prompt guidelines (Finance)",
+        "Content filtering (Financial terms)"
+      ],
+      "validation": [
+        "Response relevance (financial queries)",
+        "Grammar/Spelling (professional tone)"
+      ],
+      "monitoring": [
+        "Output quality",
+        "Usage patterns (customer queries)"
+      ],
+      "incident_triggers": [
+        "Inappropriate financial advice"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Prompt guidelines (Finance)",
+        "Content filtering (Financial terms)",
+        "Fact verification (financial data, market feeds)",
+        "Data privacy controls (PCI-DSS)"
+      ],
+      "validation": [
+        "Accuracy of financial data extraction ($P(\\text{error}) < 0.01$)",
+        "Hallucination rate (contextual, financial facts)",
+        "Privacy compliance check (customer data)"
+      ],
+      "monitoring": [
+        "Hallucination rate (financial facts)",
+        "Data privacy alerts",
+        "Information accuracy (financial advice)"
+      ],
+      "incident_triggers": [
+        "Inaccurate financial advice provided",
+        "Customer data leakage identified"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Prompt guidelines (Finance)",
+        "Content filtering (Financial terms)",
+        "Fact verification (financial data, market feeds)",
+        "Data privacy controls (PCI-DSS)",
+        "Human oversight for critical decisions (e.g., investment advice)",
+        "Audit trail for LLM outputs (regulatory)"
+      ],
+      "validation": [
+        "Accuracy of financial data extraction (strict, e.g., $P(\\text{error}) < 0.001$ for investment recommendations)",
+        "Hallucination rate (financial context, e.g., $P(\\text{hallucination}) < 0.005$ for market forecasts)",
+        "Privacy compliance (GDPR, CCPA, PCI-DSS)",
+        "Robustness to prompt injection (financial scams)"
+      ],
+      "monitoring": [
+        "Hallucination rate drift (financial facts, real-time)",
+        "Data privacy alerts (real-time)",
+        "Audit trail integrity (LLM decisions)",
+        "Regulatory compliance drift"
+      ],
+      "incident_triggers": [
+        "Material financial error from LLM advice",
+        "Regulatory breach (data handling)",
+        "Significant reputational damage (public misinformation)"
+      ]
+    }
+  },
+  "Agent": {
+    "Low": {
+      "controls": [
+        "Action logging (Financial transactions)",
+        "Access controls (Financial systems)"
+      ],
+      "validation": [
+        "Basic task completion (e.g., report generation)",
+        "Security checks (API access)"
+      ],
+      "monitoring": [
+        "System uptime",
+        "Transaction volume (reporting)"
+      ],
+      "incident_triggers": [
+        "System downtime impacting operations"
+      ]
+    },
+    "Medium": {
+      "controls": [
+        "Action logging (Financial transactions)",
+        "Granular access controls (Financial systems)",
+        "Reversibility protocols (transaction rollback)",
+        "Transaction limits (individual/daily)"
+      ],
+      "validation": [
+        "Complex transaction success rate (e.g., fund transfers)",
+        "Fraud detection efficacy ($P(\\text{fraud detected}) > 0.9$)",
+        "Unintended market impact (simulations)"
+      ],
+      "monitoring": [
+        "Transaction limit breaches",
+        "Error rates in automated trades",
+        "Fraud detection performance (real-time alerts)"
+      ],
+      "incident_triggers": [
+        "Unapproved transactions",
+        "Automated fraud bypass (missed fraud)"
+      ]
+    },
+    "High": {
+      "controls": [
+        "Action logging (Financial transactions)",
+        "Granular access controls (Financial systems)",
+        "Reversibility protocols (transaction rollback)",
+        "Transaction limits (individual/daily)",
+        "Real-time audit trails (all actions)",
+        "Circuit breakers for autonomous actions (market volatility)"
+      ],
+      "validation": [
+        "Critical transaction success rate (e.g., $P(\\text{fraudulent transaction}) < 0.0001$ for high-value transfers)",
+        "Market stability analysis (agent impact)",
+        "Compliance with financial regulations (e.g., Dodd-Frank, MiFID II)"
+      ],
+      "monitoring": [
+        "Unauthorized access attempts",
+        "Circuit breaker activations",
+        "Audit trail integrity (transaction logs)",
+        "Real-time P&L deviation (trading agents)",
+        "Compliance dashboard alerts"
+      ],
+      "incident_triggers": [
+        "Market manipulation attempt by agent",
+        "Major financial loss event",
+        "System compromise leading to asset loss"
+      ]
+    }
+  }
+}
